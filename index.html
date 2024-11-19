@@ -162,6 +162,23 @@
         padding: 10px 20px;
       }
     }
+    html {
+  background-color: black;
+}
+
+.countdown {
+  width: 100%;
+  float: left;
+  margin: 20px auto;
+}
+
+.timer {
+  font: 72px Courier;
+  color: #fff;
+  text-align: center;
+}
+    </style>
+
   </style>
 </head>
 <body>
@@ -169,6 +186,14 @@
     <!-- Animated GIF at the Top -->
     <img src="nip-animated.gif" alt="Animated Catnip Garden" class="top-image" width="400" height="400">
 
+    <div class="countdown">
+        <p class="timer">
+          <span id="days"></span>
+          <span id="hours"></span>
+          <span id="minutes"></span>
+          <span id="seconds"></span>
+        </p>
+      </div>
     <h1>Planting the <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a> Seeds</h1>
     
     <p>
@@ -226,5 +251,56 @@
       <p>&copy; 2024 Catnip. Powered by $NIP on NEAR.</p>
     </footer>
   </div>
+
+<script>
+function countdown(dateEnd) {
+  var timer, days, hours, minutes, seconds;
+
+  dateEnd = new Date(dateEnd);
+  dateEnd = dateEnd.getTime();
+
+  if ( isNaN(dateEnd) ) {
+    return;
+  }
+
+  timer = setInterval(calculate, 1000);
+
+  function calculate() {
+    var dateStart = new Date();
+    var dateStart = new Date(dateStart.getUTCFullYear(),
+                             dateStart.getUTCMonth(),
+                             dateStart.getUTCDate(),
+                             dateStart.getUTCHours(),
+                             dateStart.getUTCMinutes(),
+                             dateStart.getUTCSeconds());
+    var timeRemaining = parseInt((dateEnd - dateStart.getTime()) / 1000)
+
+    if ( timeRemaining >= 0 ) {
+      days    = parseInt(timeRemaining / 86400);
+      timeRemaining   = (timeRemaining % 86400);
+      hours   = parseInt(timeRemaining / 3600);
+      timeRemaining   = (timeRemaining % 3600);
+      minutes = parseInt(timeRemaining / 60);
+      timeRemaining   = (timeRemaining % 60);
+      seconds = parseInt(timeRemaining);
+
+      document.getElementById("days").innerHTML    = parseInt(days, 10);
+      document.getElementById("hours").innerHTML   = ("0" + hours).slice(-2);
+      document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+      document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+    } else {
+      return;
+    }
+  }
+
+  function display(days, hours, minutes, seconds) {}
+}
+
+
+
+countdown('11/20/2024 04:49:31 AM');
+
+</script>
 </body>
+  
 </html>
