@@ -2,95 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catnip - $NIP</title>
+  
+  <!-- Google Fonts: Comic Neue -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Neue', cursive;
       color: #fff;
       background: url('nip.png') no-repeat center center fixed;
       background-size: cover;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .container {
-      padding: 20px;
+      max-width: 90%;
+      width: 700px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.8); /* Slightly more opaque for better readability */
+      border-radius: 15px; /* More rounded edges for a playful look */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+      text-align: center;
+    }
+
+    /* New Image Styling */
+    .top-image {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 auto 20px auto;
+      display: block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       font-size: 3rem;
-      margin-top: 50px;
+      margin-bottom: 25px;
+      color: #FFD700; /* Gold color for a vibrant header */
+      text-shadow: 2px 2px #333;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.8;
-      margin: 20px auto;
-      max-width: 700px;
+      margin: 15px 0;
     }
 
-    a {
+    .points {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .point {
+      flex: 0 0 48%;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .point:hover {
+      transform: scale(1.05);
+    }
+
+    .point-content {
+      text-align: left;
+    }
+
+    .point-title {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #FFD700;
+      text-shadow: 1px 1px #333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .buttons a {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 25px;
       margin: 10px;
       font-size: 1.1rem;
       text-decoration: none;
       color: #fff;
-      border: 2px solid #fff;
-      border-radius: 5px;
+      border: 2px solid #FFD700;
+      border-radius: 8px;
       transition: background-color 0.3s, color 0.3s;
+      background-color: transparent;
     }
 
-    a:hover {
-      background-color: #fff;
+    .buttons a:hover {
+      background-color: #FFD700;
       color: #333;
     }
 
-    .links {
-      margin-top: 30px;
-    }
-
-    .section {
-      margin: 50px 0;
-    }
-
     footer {
-      margin-top: 50px;
-      padding: 20px;
+      margin-top: 20px;
       font-size: 0.9rem;
-      background-color: rgba(0, 0, 0, 0.6);
+      color: #ccc;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .top-image {
+        width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .point {
+        flex: 0 0 100%;
+      }
+
+      .buttons a {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to Catnip - $NIP</h1>
-    <p>The near purrfect treat that aims to bring all the cats to the yard. Help this wonderful plant grow its roots deep through the blockchains and attract ALL THE CATS through the blockchainverse. Run by a cat named Ted "The Head".</p>
+    <!-- New Top Image -->
+    <img src="nipnip.gif" alt="Main Image" class="top-image" width="400" height="400">
 
-    <div class="section">
-      <h2>Tokenomics</h2>
-      <p>Supply: 69,000,000,000 $NIP</p>
-      <p>Burn Mechanism: Purr-fectly deflationary</p>
-      <p>Utility: Staking in the yard, attracting cats, and fueling cat meme economy.</p>
+    <h1>Planting the $NIP Seeds</h1>
+    
+    <p>
+      The near purrfect treat that aims to bring all the cats to the yard. Help this wonderful plant grow its roots deep through the blockchains and attract ALL THE CATS through the blockchainverse. Run by a cat named Ted "The Head".
+    </p>
+
+    <div class="points">
+      <!-- Point 1 -->
+      <div class="point">
+        <div class="point-content">
+          <h2 class="point-title">Premium Selection</h2>
+          <p>
+            We source the finest catnip varieties to ensure a lush and vibrant Yard that cats will love.
+          </p>
+        </div>
+      </div>
+
+      <!-- Point 2 -->
+      <div class="point">
+        <div class="point-content">
+          <h2 class="point-title">Sustainable Cultivation</h2>
+          <p>
+            Using eco-friendly practices to maintain healthy and thriving catnip gardens.
+          </p>
+        </div>
+      </div>
+
+      <!-- Point 3 -->
+      <div class="point">
+        <div class="point-content">
+          <h2 class="point-title">Continuous Growth</h2>
+          <p>
+            Regularly planting and harvesting to keep THE YARD fresh and abundant for all our feline friends.
+          </p>
+        </div>
+      </div>
+
+      <!-- Point 4 -->
+      <div class="point">
+        <div class="point-content">
+          <h2 class="point-title">Real World Donations</h2>
+          <p>
+            Optional milestone-based real-world donations to matters related to war and feline care around the world.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>Roadmap</h2>
-      <p>Phase 1: Spread the Catnip ($NIP) - Grow our community of cat lovers.</p>
-      <p>Phase 2: Integration with meme platforms and staking mechanisms.</p>
-      <p>Phase 3: Launch Catnipverse - A metaverse for cats and memes.</p>
+    <div class="buttons">
+      <a href="https://x.com/TedTheNipHead" target="_blank">Follow Us on X</a>
+      <a href="https://meme.cooking/meme/868" target="_blank">Join the Initial Seeding of Catnip</a>
     </div>
-
-    <div class="links">
-      <a href="https://x.com/TedTheNipHead" target="_blank">Follow Us on Twitter</a>
-      <a href="https://meme.cooking/meme/868" target="_blank">Join the Auction</a>
-    </div>
-
+    
     <footer>
-      <p>Website powered by Catnip. &copy; 2024</p>
-      <p>GitHub Page: this GitHub page</p>
+      <p>&copy; 2024 Catnip. Powered by $NIP on NEAR.</p>
     </footer>
   </div>
 </body>
