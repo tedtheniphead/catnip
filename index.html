@@ -23,29 +23,35 @@
     }
 
     .container {
-      max-width: 90%;
-      width: 700px;
-      padding: 30px;
+      max-width: 100%;
+      width: 50%;
+      padding: 20px;
       border-radius: 15px; /* More rounded edges for a playful look */
       text-align: center;
     }
 
     /* New Animated GIF Styling */
     .top-image {
-      width: 300px;
-      height: 300px;
+      width: 80%;
+      max-width: 300px;
+      height: auto;
       object-fit: cover;
       border-radius: 10px;
       margin: 0 auto 0px auto;
       display: block;
-      
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 1.25rem;
       margin-bottom: 25px;
       color: #ffffff; /* Gold color for a vibrant header */
       text-shadow: 2px 2px #333;
+    }
+
+    h2 {
+      font-size: 1.20rem;
+      margin-bottom: 20px;
+      color: #ffffff;
     }
 
     /* Styling for the $NIP link in the title */
@@ -105,12 +111,15 @@
       flex-wrap: wrap;
       gap: 15px;
       margin-bottom: 20px;
+      flex-direction: column; /* Change flex direction to column for narrow screens */
     }
 
     .buttons a {
       display: inline-block;
+      width: 90%;
+      max-width: 200px;
       padding: 12px 25px;
-      margin: 10px;
+      margin: 5px auto;
       font-size: 1.1rem;
       text-decoration: none;
       color: #fff;
@@ -135,7 +144,7 @@
     @media (max-width: 768px) {
       .container {
         width: 90%;
-        padding: 20px;
+        padding: 15px;
       }
 
       .top-image {
@@ -144,47 +153,68 @@
       }
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
       }
 
       p {
         font-size: 1rem;
+        margin: 10px 0;
       }
 
       .point {
         flex: 0 0 100%;
+        padding: 15px;
+        margin-bottom: 15px;
       }
 
       .buttons a {
-        font-size: 1rem;
-        padding: 10px 20px;
+        font-size: 0.9rem;
+        padding: 8px 15px;
       }
     }
+
+    .tedsocial{
+      color: #cf3550;
+      text-decoration: none;
+    }
+
     html {
-  background-color: black;
-}
+      background-color: black;
+    }
 
-.countdown {
-  width: 100%;
-  float: left;
-  margin: 6px auto;
-}
+    .countdown {
+      width: 100%;
+      float: left;
+      margin: 6px auto;
+    }
 
-.timer {
-  font: 32px Courier;
-  color: #fff;
-  text-align: center;
-  height: 82px;
-  width: 700px;
-}
-    </style>
+    .timer {
+      font: 24px Courier;
+      color: #fff;
+      text-align: center;
+      height: 82px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      position: relative;
+      justify-content: center;
+    }
 
+    @media (max-width: 480px) {
+      .timer {
+        font: 18px Courier;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Animated GIF at the Top -->
-    <img src="nip.png" alt="Animated Catnip Garden" class="top-image" width="400" height="400">
+    <img src="nip.png" alt="Animated Catnip Garden" class="top-image">
 
     <div class="countdown">
         <p class="timer">
@@ -193,11 +223,10 @@
           <span id="minutes"></span>
           <span id="seconds"></span>
         </p>
-      </div>
-    <h1> Phase 1: Planting the <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a> Seeds</h1>
-    <p>
-      The near purrfect treat that aims to bring all the cats to the yard. Help this wonderful plant grow its roots deep through the blockchains and attract ALL THE CATS through the blockchainverse. Run by an AI cat named Ted "The Niphead" who is in the empire building business and is constantly getting too high on his own supply. His first move? <br> <a href="https://meme.cooking/meme/868" class="nip-link">The Yard of Nip</a>.
-    </p>
+    </div>
+    <h1> <b>Phase 1:</b> Planting the <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a> Seeds</h1>
+    <h2> <b>Phase 2: </b>Spawn <a href="https://x.com/TedTheNipHead" class="tedsocial">Ted the Niphead</a>, the AI CEO of NIPHEAD INC who will spread <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a> throughout the blockchainverse.</h2>
+    <h2> <b>Phase 3: </b>Create community incentive programs to help raise funds to donate to cat support organizations around the world affected by the war. Redeem your sins by doing something with a purpose while celebrating cat memes around the blockchains. This involves staking of cat themed tokens to produce more <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a>, a percentage of which will be locked in a charity fund. Managed by the Nipheads themselves and represented by <a href="https://x.com/TedTheNipHead" class="tedsocial">Ted the Niphead</a>, AI CEO </h2>
 
     <div class="buttons">
       <a href="https://x.com/TedTheNipHead" target="_blank">Niphead on X</a>
@@ -249,11 +278,8 @@ function countdown(dateEnd) {
   function display(days, hours, minutes, seconds) {}
 }
 
-
-
 countdown('11/20/2024 04:49:31 AM');
 
 </script>
 </body>
-  
 </html>
