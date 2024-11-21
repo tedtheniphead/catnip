@@ -186,24 +186,25 @@
 
 
 .music-controls {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  position: relative;
+  display: flex;
+    justify-content: center;
+    align-items: center;
   z-index: 100;
 }
 
 .music-controls button {
-  padding: 10px 20px;
-  background: #222;
-  color: #0f0;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  padding: 12px;
+    background: #222;
+    color: #15c68f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
 }
 
 .music-controls button:hover {
-  background: #0f0;
+  background: #15c68f;
   color: #222;
 }
   </style>
@@ -212,13 +213,14 @@
 
 
 <div id="fireflyContainer">
-  <div class="music-controls">
-    <button id="toggleMusic">Add Sound</button>
-  </div>
-  <audio id="backgroundMusic" src="echo.mp3" loop></audio>
+  
 </div>
   <div class="centerBox">
     <h1 class="glow" data-glitch>$HERMES</h1>
+    <div class="music-controls">
+      <button id="toggleMusic">♪</button>
+    </div>
+    <audio id="backgroundMusic" src="echo.mp3" loop></audio>
     <audio id="backgroundMusic" src="echo.mp3" loop></audio>
 
     <h1 data-glitch>>> The Tablet takes shape.</h1>
@@ -251,10 +253,10 @@ const backgroundMusic = document.getElementById("backgroundMusic");
   function toggleMusic() {
     if (isMuted) {
       backgroundMusic.play();
-      toggleButton.textContent = "Mute";
+      toggleButton.textContent = "x";
     } else {
       backgroundMusic.pause();
-      toggleButton.textContent = "Add Sound";
+      toggleButton.textContent = "♪";
     }
     isMuted = !isMuted;
   }
