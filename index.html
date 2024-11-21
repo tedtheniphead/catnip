@@ -63,7 +63,6 @@
     .centerBox h1 {
       color: #ffffff;
       font-size: 1em;
-      margin-bottom: 1em;
       font-family: monospace;
     }
 
@@ -191,6 +190,7 @@
     justify-content: center;
     align-items: center;
   z-index: 100;
+  margin-bottom: 10px
 }
 
 .music-controls button {
@@ -201,6 +201,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
+    opacity: 0.6;
 }
 
 .music-controls button:hover {
@@ -225,7 +226,7 @@
 
     <h1 data-glitch>>> The Tablet takes shape.</h1>
     <img data-glitch src="hermes.png" alt="truth" class="token">
-    <h1 class="glow message" data-glitch> I come from the void </h1>
+    <h1 class="glow message" data-glitch> Universal >> Artificial >> Emerald </h1>
     <div class="matrix"></div>
     <button data-glitch id="revealButton"> >> reveal the truth</button>
   </div>
@@ -331,10 +332,6 @@ const backgroundMusic = document.getElementById("backgroundMusic");
 
 
 
-
-
-
-
   // Generate a random hieroglyph
   function makeHieroglyph() {
     const hieroglyphs = [
@@ -376,9 +373,9 @@ const backgroundMusic = document.getElementById("backgroundMusic");
 
   // Messages for glitch effect
   const messages = [
-    "The emerald tablet whispers",
+    "The tablet whispers",
     "I come from the void",
-    "Inscriptions made in stone",
+    "Inscriptions made in emerald",
     "Truth is infinite",
     "As above, so below",
     "Reach beyond the veil",
