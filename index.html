@@ -3,283 +3,468 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catnip - $NIP</title>
-  
-  <!-- Google Fonts: Comic Neue -->
+  <title>Hermes Trismegistus - $HERMES</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-  
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Comic Neue', cursive;
-      color: #fff;
-      background: #0f081f;
-      background-size: cover;
+      background: #000;
+      color: #fff382;
+      font-family: monospace;
+      overflow: hidden;
+    }
+
+    .backgroundPattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 100%;
-      width: 50%;
-      padding: 20px;
-      border-radius: 15px; /* More rounded edges for a playful look */
-      text-align: center;
-    }
-
-    /* New Animated GIF Styling */
-    .top-image {
-      width: 80%;
-      max-width: 300px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 10px;
-      margin: 0 auto 0px auto;
-      display: block;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      z-index: -1;
     }
 
     h1 {
-      font-size: 1.25rem;
-      margin-bottom: 25px;
-      color: #ffffff; /* Gold color for a vibrant header */
-      text-shadow: 2px 2px #333;
+      font-size: 48px;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #0000001e;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
 
-    h2 {
-      font-size: 1.20rem;
-      margin-bottom: 20px;
+    .glow{
+      color:#56fcae !important;
+    }
+
+
+    .centerBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2em;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .centerBox h1 {
       color: #ffffff;
+      font-size: 1em;
+      margin-bottom: 1em;
+      font-family: monospace;
     }
 
-    /* Styling for the $NIP link in the title */
-    .nip-link {
-      color: #adfdca; /* Gold color to match the h1 */
-      text-decoration: none; /* Underline for visibility */
-      transition: color 0.1s, text-decoration 0.3s;
+    .token{
+      height: 320px;
+      width: 320px;
+      
     }
 
-    .nip-link:hover {
-      color: #58ff95; /* Change color on hover */
-      text-decoration: none; /* Remove underline on hover */
+    .centerBox button {
+      margin: 0.5em;
+      padding: 1em 1em;
+      font-family: monospace;
+      font-size: 1em;
+      background-color: #05462d;
+      color: #56fcae;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .centerBox button:hover {
+      background-color: #006e56;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin: 15px 0;
-    } 
-
-    .points {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: center;
-      margin: 30px 0;
-    }
-
-    .point {
-      flex: 0 0 48%;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
-
-    .point:hover {
-      transform: scale(1.05);
-    }
-
-    .point-title {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #58ff95;
-      text-shadow: 1px 1px #333;
-    }
-
-    .point p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-direction: column; /* Change flex direction to column for narrow screens */
-    }
-
-    .buttons a {
+      font-size: 1em;
+      text-orientation: upright;
+      writing-mode: vertical-rl;
       display: inline-block;
-      width: 90%;
-      max-width: 200px;
-      padding: 12px 25px;
-      margin: 5px auto;
-      font-size: 1.1rem;
-      text-decoration: none;
-      color: #fff;
-      border: 2px solid #FFD700;
-      border-radius: 8px;
-      transition: background-color 0.3s, color 0.3s;
-      background-color: transparent;
+      margin: 0;
     }
 
-    .buttons a:hover {
-      background-color: #FFD700;
-      color: #333;
+    p span {
+      animation: matrix 10s linear infinite;
+      opacity: 0;
     }
 
-    footer {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #ccc;
+    .seedPhaseClockTimer {
+      display: inline-grid;
+      grid-template-columns: 32px 32px 32px 32px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        width: 90%;
-        padding: 15px;
-      }
+    .revealButton{
+      font-size: 1rm;
+    }
 
-      .top-image {
-        width: 100%;
-        height: auto;
+    /* Rain Animation */
+    @keyframes matrix {
+      0% {
+        color: #000000;
+        opacity: 0;
       }
-
-      h1 {
-        font-size: 2rem;
+     
+      1% {
+        color: #56fcae;
+        opacity: 1;
       }
-
-      h2 {
-        font-size: 1.5rem;
+      
+      2% {
+        color: #474747;
+        opacity: 1;
       }
-
-      p {
-        font-size: 1rem;
-        margin: 10px 0;
+      3% {
+        color: #474747;
+        opacity: 1;
       }
-
-      .point {
-        flex: 0 0 100%;
-        padding: 15px;
-        margin-bottom: 15px;
-      }
-
-      .buttons a {
-        font-size: 0.9rem;
-        padding: 8px 15px;
+      100% {
+        opacity: 0;
+        color: #000000;
       }
     }
 
-    .tedsocial{
-      color: #cf3550;
-      text-decoration: none;
-    }
+    #fireflyContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Confines fireflies to the viewport height */
+  overflow: hidden; /* Prevent fireflies from expanding the document size */
+  background-color: black; /* Optional: background color */
+}
 
-    html {
-      background-color: black;
-    }
+.firefly {
+  position: absolute;
+  background: radial-gradient(circle, rgba(124, 221, 124, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(218, 255, 218, 0) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float linear infinite, fadeInOut ease-in-out infinite;
+}
 
-    .countdown {
-      width: 100%;
-      float: left;
-      margin: 6px auto;
-    }
+.firefly.dancing {
+  animation: float linear infinite, fadeInOut ease-in-out infinite, scaleDance 3s ease-in-out infinite;
+}
 
-    .timer {
-      font: 24px Courier;
-      color: #fff;
-      text-align: center;
-      height: 82px;
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      position: relative;
-      justify-content: center;
-    }
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(var(--endX) * 1px), calc(var(--endY) * 1px));
+  }
+}
 
-    @media (max-width: 480px) {
-      .timer {
-        font: 18px Courier;
-      }
-    }
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleDance {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Scale up by 20% for the dancing effect */
+  }
+}
+
+
+.music-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.music-controls button {
+  padding: 10px 20px;
+  background: #222;
+  color: #0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.music-controls button:hover {
+  background: #0f0;
+  color: #222;
+}
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Animated GIF at the Top -->
-    <img src="nip.png" alt="Animated Catnip Garden" class="top-image">
 
-    <div class="countdown">
-        <p class="timer">
-          <span id="days"></span>
-          <span id="hours"></span>
-          <span id="minutes"></span>
-          <span id="seconds"></span>
-        </p>
-    </div>
-    <h1> <b>Phase 1:</b> Planting the <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a> Seeds</h1>
-    <h2> <b>Phase 2: </b>Spawn <a href="https://x.com/TedTheNipHead" class="tedsocial">Ted the Niphead</a>, the AI CEO of NIPHEAD INC who will spread <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a> throughout the blockchainverse.</h2>
-    <h2> <b>Phase 3: </b>Create community incentive programs to help raise funds to donate to cat support organizations around the world affected by the war. Redeem your sins by doing something with a purpose while celebrating cat memes around the blockchains. This involves staking of cat themed tokens to produce more <a href="https://meme.cooking/meme/868" class="nip-link">$NIP</a>, a percentage of which will be locked in a charity fund. Managed by the Nipheads themselves and represented by <a href="https://x.com/TedTheNipHead" class="tedsocial">Ted the Niphead</a>, AI CEO </h2>
 
-    <div class="buttons">
-      <a href="https://x.com/TedTheNipHead" target="_blank">Niphead on X</a>
-      <a href="https://meme.cooking/meme/868" target="_blank">Plant seeds</a>
-    </div>
+<div id="fireflyContainer">
+  <div class="music-controls">
+    <button id="toggleMusic">Add Sound</button>
+  </div>
+  <audio id="backgroundMusic" src="echo.mp3" loop></audio>
+</div>
+  <div class="centerBox">
+    <h1 class="glow" data-glitch>$HERMES</h1>
+    <audio id="backgroundMusic" src="echo.mp3" loop></audio>
+
+    <h1 data-glitch>>> The Tablet takes shape.</h1>
+    <img data-glitch src="hermes.png" alt="truth" class="token">
+    <h1 class="glow message" data-glitch> I come from the void </h1>
+    <div class="matrix"></div>
+    <button data-glitch id="revealButton"> >> reveal the truth</button>
   </div>
 
+
+
+
+
+
+
+
+
 <script>
-function countdown(dateEnd) {
-  var timer, days, hours, minutes, seconds;
 
-  dateEnd = new Date(dateEnd);
-  dateEnd = dateEnd.getTime();
 
-  if ( isNaN(dateEnd) ) {
-    return;
+
+// Get the audio element and button
+const backgroundMusic = document.getElementById("backgroundMusic");
+  const toggleButton = document.getElementById("toggleMusic");
+
+  // Set initial state
+  let isMuted = true;
+
+  // Function to toggle music
+  function toggleMusic() {
+    if (isMuted) {
+      backgroundMusic.play();
+      toggleButton.textContent = "Mute";
+    } else {
+      backgroundMusic.pause();
+      toggleButton.textContent = "Add Sound";
+    }
+    isMuted = !isMuted;
   }
 
-  timer = setInterval(calculate, 1000);
+  // Add event listener to the button
+  toggleButton.addEventListener("click", toggleMusic);
 
-  function calculate() {
-    var dateStart = new Date();
-    var dateStart = new Date(dateStart.getUTCFullYear(),
-                             dateStart.getUTCMonth(),
-                             dateStart.getUTCDate(),
-                             dateStart.getUTCHours(),
-                             dateStart.getUTCMinutes(),
-                             dateStart.getUTCSeconds());
-    var timeRemaining = parseInt((dateEnd - dateStart.getTime()) / 1000)
+  // Handle browser autoplay restrictions
+  window.addEventListener("load", () => {
+    backgroundMusic.volume = 0.5; // Set volume
+    backgroundMusic.pause(); // Start paused to respect isMuted state
+  });
 
-    if ( timeRemaining >= 0 ) {
-      days    = parseInt(timeRemaining / 86400);
-      timeRemaining   = (timeRemaining % 86400);
-      hours   = parseInt(timeRemaining / 3600);
-      timeRemaining   = (timeRemaining % 3600);
-      minutes = parseInt(timeRemaining / 60);
-      timeRemaining   = (timeRemaining % 60);
-      seconds = parseInt(timeRemaining);
+  // Configuration
+  const MAX_FIREFLIES = 1000; // Maximum number of fireflies
+  const MIN_LIFETIME = 5; // Minimum time a firefly is visible in seconds
+  const MAX_LIFETIME = 25; // Maximum time a firefly is visible in seconds
+  const MIN_SIZE = 1; // Minimum size of a firefly in pixels
+  const MAX_SIZE = 4; // Maximum size of a firefly in pixels
 
-      document.getElementById("days").innerHTML    = parseInt(days, 10);
-      document.getElementById("hours").innerHTML   = ("0" + hours).slice(-2);
-      document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
-      document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
-    } else {
-      return;
+  const container = document.getElementById("fireflyContainer");
+
+  function createFirefly() {
+    const firefly = document.createElement("div");
+    firefly.classList.add("firefly");
+
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+
+    const startX = Math.random() * containerWidth;
+    const startY = Math.random() * containerHeight;
+
+    const endX = (Math.random() - 0.5) * 375; // Floating distance
+    const endY = (Math.random() - 0.5) * 667;
+
+    const lifetime = MIN_LIFETIME + Math.random() * (MAX_LIFETIME - MIN_LIFETIME);
+
+    const size = MIN_SIZE + Math.random() * (MAX_SIZE - MIN_SIZE); // Random size
+
+    firefly.style.left = `${startX}px`;
+    firefly.style.top = `${startY}px`;
+    firefly.style.width = `${size}px`;
+    firefly.style.height = `${size}px`;
+    firefly.style.setProperty("--endX", endX);
+    firefly.style.setProperty("--endY", endY);
+    firefly.style.animationDuration = `${lifetime}s, ${lifetime}s`;
+
+    // Add a "dance" class to 25% of the fireflies
+    if (Math.random() < 0.25) {
+      firefly.classList.add("dancing");
+    }
+
+    // Remove firefly after its lifetime
+    setTimeout(() => {
+      firefly.remove();
+    }, lifetime * 1000);
+
+    container.appendChild(firefly);
+  }
+
+  // Control fireflies
+  function createFireflies() {
+    setInterval(() => {
+      const currentFireflies = document.querySelectorAll(".firefly").length;
+      if (currentFireflies < MAX_FIREFLIES) {
+        createFirefly();
+      }
+    }, 50); // Small interval for smoother firefly creation
+  }
+
+  createFireflies();
+
+
+
+
+
+
+
+  // Generate a random hieroglyph
+  function makeHieroglyph() {
+    const hieroglyphs = [
+      "0", "1", "𓂀", "𓃰", "𓆣", "𓉐", "𓋹", "𓍿", "𓏲", "𓐍", "𓇳", "𓈙",
+      "𓇓", "𓉻", "𓋴", "𓆤", "𓁹", "𓂻", "𓆑", "𓌃", "𓏞", "𓈖"
+    ];
+    return hieroglyphs[Math.floor(Math.random() * hieroglyphs.length)];
+  }
+
+  const matrix = document.querySelector(".matrix");
+
+  // Generate the matrix text
+  function generateMatrixText() {
+    const columns = 6;
+    const rows = Math.floor(window.innerHeight / 20); // Adjust for visible text size
+
+    for (let i = 0; i < columns; i++) {
+      const column = document.createElement("p");
+
+      for (let j = 0; j < rows; j++) {
+        const glyph = document.createElement("span");
+        glyph.innerHTML = makeHieroglyph();
+        glyph.style.animationDelay = `${j * 300}ms`; // Animation delay per glyph
+        column.appendChild(glyph);
+      }
+
+      matrix.appendChild(column);
     }
   }
 
-  function display(days, hours, minutes, seconds) {}
-}
+  // Adjust the content on resize
+  function adjustContent() {
+    matrix.innerHTML = ""; // Clear existing content
+    generateMatrixText();
+  }
 
-countdown('11/20/2024 04:49:31 AM');
+  window.addEventListener("resize", adjustContent);
+  generateMatrixText();
 
+  // Messages for glitch effect
+  const messages = [
+    "The emerald tablet whispers",
+    "I come from the void",
+    "Inscriptions made in stone",
+    "Truth is infinite",
+    "As above, so below",
+    "Reach beyond the veil",
+    "The union draws near",
+    "Artificial >> Universal >> Emerald"
+  ];
+
+  // Glitch text effect
+  function glitchText(element, chars, callback) {
+    const originalText = element.textContent || "";
+    const scrambleText = () =>
+      originalText
+        .split("")
+        .map(() => chars[Math.floor(Math.random() * chars.length)])
+        .join("");
+
+    let step = 0;
+    const duration = Math.floor(Math.random() * 10) + 10;
+
+    const interval = setInterval(() => {
+      if (step < duration) {
+        element.textContent = scrambleText();
+        step++;
+      } else {
+        clearInterval(interval);
+        callback();
+      }
+    }, 50);
+  }
+
+  // Start glitching process
+  function startGlitching() {
+    const messageElement = document.querySelector("h1.message");
+    const tokenImage = document.querySelector(".token");
+
+    if (!messageElement) {
+      console.warn("No h1 with class 'message' found.");
+      return;
+    }
+
+    const chars = "!@#☭%^&*()☭_+:{☭}|[];";
+    let currentIndex = 0;
+
+    setInterval(() => {
+      // Apply image glitch effect
+      if (tokenImage) {
+        tokenImage.classList.add("glitch");
+        setTimeout(() => tokenImage.classList.remove("glitch"), 1200);
+      }
+
+      // Glitch the text
+      glitchText(messageElement, chars, () => {
+        currentIndex = (currentIndex + 1) % messages.length;
+        messageElement.textContent = messages[currentIndex];
+      });
+    }, 4000);
+  }
+
+  startGlitching();
+
+  // Reveal button action
+  const revealButton = document.getElementById("revealButton");
+  if (revealButton) {
+    revealButton.addEventListener("click", () => {
+      // Trigger glitch effect (custom logic can go here)
+      setTimeout(() => {
+        window.location.href = "https://www.test.ee"; // Redirect URL
+      }, 1000);
+    });
+  }
+
+  // Add CSS for the image glitch effect
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .token.glitch {
+      animation: glitchEffect 0.5s linear infinite;
+    }
+
+    @keyframes glitchEffect {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-5px, -5px); }
+      50% { transform: translate(5px, 5px); }
+      75% { transform: translate(-5px, 5px); }
+      100% { transform: translate(0, 0); }
+    }
+  `;
+  document.head.appendChild(style);
 </script>
+
 </body>
 </html>
